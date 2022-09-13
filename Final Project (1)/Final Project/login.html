@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Sign In</title>
+
+    <!-- Font Icon -->
+    <link
+      rel="stylesheet"
+      href="fonts/material-icon/css/material-design-iconic-font.min.css"
+    />
+
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <!-- js -->
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.7.1.min.js"
+    ></script>
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Dashboard</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="d-flex" class=" collapse navbar-collapse n"  id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html"
+                  >Sign Up</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login.html">Sign In</a>
+              </li>
+              <li class="nav-item">
+                <a id="logout-btn" class="nav-link" href="#">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="main">
+      <!-- Sing in  Form -->
+      <section class="sign-in">
+        <div class="login-container">
+          <div class="signin-content">
+            <div class="signin-form">
+              <h2 class="form-title">Sign In</h2>
+              <form method="POST" class="register-form" id="login-form">
+                <div class="form-group">
+                  <label for="email"
+                    ><i class="zmdi zmdi-account material-icons-email"></i
+                  ></label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Your Name"
+                  />
+                  <span
+                    id="error-email"
+                    style="color: white; margin: 20px"
+                  ></span>
+                </div>
+                <div class="form-group">
+                  <label for="password"><i class="zmdi zmdi-lock"></i></label>
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                  />
+                  <span id="error-pass" style="color: white; margin: 20px"></span>
+                </div>
+                <div class="form-group">
+                  <input
+                    type="checkbox"
+                    name="remember-me"
+                    id="remember-me"
+                    class="agree-term"
+                  />
+                  <label for="remember-me" class="label-agree-term"
+                    ><span><span></span></span>Remember me</label
+                  >
+                </div>
+                <div class="form-group form-button">
+                  <input
+                    type="submit"
+                    name="signin"
+                    id="signin"
+                    class="form-submit"
+                    value="Log in"
+                  />
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <div class="spinner-border" role="status" id="spinner">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+              </form>
+             
+              <div class="social-login">
+                <div className="google-img"> 
+                  <img  style="width: 25px"
+                  
+                   className="mr-5 ml-1"
+                   src="Images/google.png"
+                   alt="google logo"/>
+                  
+                  
+              </div>
+              
+              <div className="google-text">
+                <p>Continue with Google</p>
+            </div>
+        </div>
+        <div className="create-account-area"> 
+            <p className="text-center">Don’t have an account? <span>Create an account</span></p>
+        </div>
+             
+ 
+            </div>
+                
+                
+                
+          
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- JS -->
+    <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
+
+    <!-- sweetalerts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+    <!-- firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <!-- firebase files -->
+    <!-- <script type="module" src="js/firebaseConfig.js"></script> -->
+    <script src="js/config.js"></script>
+    <script src="js/login.js"></script>
+
+    <!-- jqeury -->
+    <!-- <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script> -->
+
+    <!-- bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

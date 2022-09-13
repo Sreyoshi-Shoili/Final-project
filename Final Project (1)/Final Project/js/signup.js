@@ -64,7 +64,7 @@ const registerBtn = document.getElementById("signup").onclick = ((e) => {
                     icon: "success",
                     button: "Login"
                 }).then(function() {
-                    window.location.href = "/login.html"
+                    window.location.href = "login.html"
                 })
             }).catch(error => {
                 $("#email").css("border-bottom", "solid red 2px")

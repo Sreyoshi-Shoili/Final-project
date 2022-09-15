@@ -20,7 +20,7 @@ const loginBtn = document.getElementById("signin").onclick = ((e) => {
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then((userCredentials) => {
                 sessionStorage.setItem("uid", userCredentials.user.uid)
-                window.location.href = "dash.html"
+                window.location.href = "teacher_dashboard.html"
             }).catch((error) => {
                 swal({
                     title: "Sign In",

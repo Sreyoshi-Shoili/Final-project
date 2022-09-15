@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $("#spinner").hide()
 })
-
+  
 const registerBtn = document.getElementById("signup").onclick = ((e) => {
     e.preventDefault()
 
@@ -11,33 +11,47 @@ const registerBtn = document.getElementById("signup").onclick = ((e) => {
     const email = document.getElementById("email").value
 
 
-    // verify username
-    if (username.length >= 20 || username.length <= 3) {
-        $("#name").css("border-bottom", "solid red 2px");
-        $("#error-name").text("Username must be atleast 4 characters and less than 20 characters.")
-        return false
+    var usercheck = /^[a-zA-Z\-]+$/;
+    var passwordcheck = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/ ;
+    var emailcheck =  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    
+    //Verify Username
+    if(usercheck.test(username)){
+     document.getElementById('error-name').innerHTML=" ";
+    }else{
+     document.getElementById('error-name').innerHTML="** Username is Invalid";
+     return false;
     }
+    
+    //Verify password
+    if(passwordcheck.test(password)){
+   
+     document.getElementById('error-pass').innerHTML=" ";
+    }else{
+     document.getElementById('error-pass').innerHTML="** Password is Invalid";
+     return false;
+    }
+    //Verify re-password
+    if(passwordcheck.test(re_password)){
+  
+     document.getElementById('error-re_pass').innerHTML="";
+    }
+    else{
+     document.getElementById('error-re_pass').innerHTML="** Password is not matched";
+     return false;
+    }
+    //Verify Email
+    if(emailcheck.test(email)){
+     document.getElementById('error-email').innerHTML=" ";
+    }
+    else{
+     document.getElementById('error-email').innerHTML="** Email is Invalid";
+     return false;
+    }
+ 
 
 
-    if (password.length < 6) {
-        $("#pass").css("border-bottom", "solid red 2px");
-        $("#error-pass").text("Password must be atleast 6 characters")
-        return false
-    }
 
-    if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
-        $("#email").css("border-bottom", "solid red 2px")
-        $("#error-email").text("Invalid email address format")
-        return false
-    }
-
-    if (password !== re_password) {
-        $("#pass").css("border-bottom", "solid red 2px")
-        $("#re_pass").css("border-bottom", "solid red 2px")
-        $("#error-pass").text("Passwords do not match")
-        $("#error-re_pass").text("Passwords do not match")
-        return false
-    }
 
 
     firebase.firestore().collection("users").where("username", "==", username)
